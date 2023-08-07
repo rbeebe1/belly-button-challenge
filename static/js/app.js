@@ -5,16 +5,21 @@ function plotCharts(selectedValue) {
 
     d3.json(url).then( function(data) {
         
+        // Populate dropdown menu
         let dropDownValues = d3.select("#selDataset");
 
+        // Retrieve previous selection if available
         let previousDropDownValue = dropDownValues.property("value");
         
+        // Clear dropdown menu before each iteration
         dropDownValues.html("");
 
+        // Repopulate dropdown menu
         data.names.forEach(function(name){
             dropDownValues.append("option").text(name).property("value", name)
         });
 
+        // If previous selection exists, display it in the dropdown
         if (previousDropDownValue) {
             dropDownValues.property("value", previousDropDownValue);
         }
@@ -77,7 +82,7 @@ function plotCharts(selectedValue) {
         var bubbleData = [trace2];
           
         var bubbleLayout = {
-            title: 'All OTUs found in Patient',
+            title: 'All OTUs found in Patient: ' + selectedValue,
             xaxis: {
                 title: {
                     text:"OTU ID"
