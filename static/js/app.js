@@ -82,6 +82,7 @@ function plotCharts(selectedValue) {
         var bubbleData = [trace2];
           
         var bubbleLayout = {
+            margin: { t: 0 },
             title: 'All OTUs found in Patient: ' + selectedValue,
             xaxis: {
                 title: {
